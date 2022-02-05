@@ -1,15 +1,9 @@
-# Alpha
 FROM biansepang/weebproject:buster
 
-# Dockerfile
-# Alpha
-# Dockerfile
-RUN git clone -b Alpha https://github.com/AftahBagas/Alpha-Userbot /root/userbot
-RUN mkdir /root/userbot/.bin
-RUN pip install --upgrade pip setuptools
-WORKDIR /root/userbot
+RUN git clone -b Alpha https://github.com/AftahBagas/Alpha-Userbot /home/alpha-userbot/ \
+    && chmod 777 /home/alpha-userbot \
+    && mkdir /home/alpha-userbot/bin/
 
-#Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/AftahBagas/Alpha-Userbot/Alpha/requirements.txt
+WORKDIR /home/alpha-userbot/
 
-CMD ["python3","-m","userbot"]
+CMD [ "bash", "start" ]
